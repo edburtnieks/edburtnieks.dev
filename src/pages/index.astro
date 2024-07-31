@@ -3,21 +3,21 @@ import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
 
 const allBlogPosts = await getCollection("blog");
-
 ---
 
 <Layout title="Edgars Burtnieks">
     <main>
         <h1>Hello, I'm Edgars Burtnieks</h1>
         <ul>
-            {allBlogPosts.map((blogPost) => (
-            <li>
-                <a href={`/blog/${blogPost.slug}`}>
-                    {blogPost.data.title}
-                </a>
-            </li>
-            ))}
+            {
+                allBlogPosts.map((blogPost) => (
+                    <li>
+                        <a href={`/blog/${blogPost.slug}`}>
+                            {blogPost.data.title}
+                        </a>
+                    </li>
+                ))
+            }
         </ul>
     </main>
 </Layout>
-

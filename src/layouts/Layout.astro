@@ -15,23 +15,25 @@ const { title } = Astro.props;
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+        <title>{title}</title>
     </head>
     <body>
-    <slot />
+        <slot />
     </body>
 </html>
 
 <style is:global>
-*, *::before, *::after {
-    box-sizing: border-box;
-}
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
 
-:root {
-    color-scheme: light dark;
-}
+    :root {
+        color-scheme: light dark;
+    }
 
-html {
-    font-family: system-ui, sans-serif;
-}
+    html {
+        font-family: system-ui, sans-serif;
+    }
 </style>
