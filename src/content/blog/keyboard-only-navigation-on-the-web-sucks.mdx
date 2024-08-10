@@ -1,0 +1,71 @@
+---
+title: Keyboard Only Navigation On The Web Sucks
+---
+
+import KeyboardVSMouseScrollSrc from "./assets/keyboard-vs-mouse-scroll.mp4";
+
+# Keyboard Only Navigation On The Web Sucks
+
+As I've been using keyboard only navigation more and more frequently on the web, but without screen reader, I've encountered few pain points that makes me want to reach for mouse.
+
+> There is some notes in my physical notebook
+
+1. "Skip to content" menu
+    - What if "skip to content" menu would be a native browser feature
+    - https://www.w3.org/WAI/ARIA/apg/
+    - https://www.twitch.tv/
+2. No way of jumping between scrollable areas
+    Very recently Chrome got an update where scrollable areas without interactive elements inside, are keyboard navigatable with tab key, but that's not enough
+    I would want a native browser keyboard shortcut to cycle through scrollable areas
+3. Browser builtin navigation
+4. Browser builtin way of cycling between different types of content (similar to screen reader)
+    - Headings
+    - Landmarks
+    - Links
+    - Buttons
+5. How to fix scrolling with keyboard and then trying to tab (one of the most annoying things)
+
+---
+
+Intro:
+
+Keyboard only navigation on the web sucks
+
+---
+
+The most frustrating "issue?" I've come across is when you are scrolling a lengthy blog post with arrow keys and you come across a link that you want to focus on, whether you want the browser to tell you where does the link go to or open it in new tab, when you press `tab` key to try to focus on the said link, all of the sudden you are brought back to completely different part of the page, most likely at the very top of the page if that was your first `tab` interaction. Whilst using a mouse it's not an issue, because your "interaction maker"? is already in your viewport, you just need to position it in the right place. Currently active element does not follow the visible viewport as it changes on scroll.
+
+<figure>
+    <video src={KeyboardVSMouseScrollSrc} type="video/mp4" controls width="768" autoplay muted playsinline loop />
+    <figcaption>TODO</figcaption>
+</figure>
+
+---
+
+On a similar note, it's impossible to jump between scroll containers.
+
+*Mention https://developer.chrome.com/blog/keyboard-focusable-scrollers*
+
+"Skip to content" menu could help with this, if it's implemented by the specific site. There are certainly sites that have, for example:
+- https://twitch.tv *Animated GIF showcasing Twitch "Skip to content"*
+- https://www.w3.org/WAI/ARIA/apg/ *Animated GIF showcasing "Skip to content"*
+  - This uses SkipTo JS library
+    - https://paypal.github.io/skipto/
+    - https://skipto-landmarks-headings.github.io/page-script-5/
+
+
+Jira has a different implementation to jump between two main scroll containers you tend to interact when viewing a Jira ticket which I recently found by accident.
+
+You can switch between the main scroll container (description and comments) and secondary scroll container (fields) using left and right arrows
+
+*Animated GIF showcasing using left and right arrows to switch between scroll containers*
+
+---
+
+Hide cursor when navigating page via keyboard
+
+---
+
+Tips:
+
+`Ctrl` + `f` is a life saver to jump between interactive elements. The experience is very close to using a mouse
