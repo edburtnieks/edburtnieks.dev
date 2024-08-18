@@ -39,5 +39,48 @@ const { title } = Astro.props;
 
     body {
         background-color: hsl(0deg 0% 97.25%);
+        line-height: 1.6;
+        font-size: 1.5rem;
+    }
+
+    body,
+    h1,
+    p,
+    figure,
+    ul,
+    ol,
+    blockquote {
+        margin: 0;
+    }
+
+    h1 {
+        margin-bottom: 0.8em;
+        line-height: 1.1;
+        text-wrap: balance;
+    }
+
+    p {
+        margin-block: 1.25em;
+        text-wrap: pretty;
+    }
+
+    video {
+        max-inline-size: 100%;
+        block-size: auto;
+    }
+
+    .readable-inline-size {
+        max-inline-size: 55ch;
+    }
+
+    .banner {
+        background-color: hsl(49 100% 87.5%);
+        padding: 8px 12px;
+        font-weight: 700;
+        font-size: 1rem;
+
+        p {
+            margin: 0;
+        }
     }
 </style>
