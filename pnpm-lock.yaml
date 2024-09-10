@@ -13,6 +13,9 @@ importers:
             astro:
                 specifier: ^4.15.4
                 version: 4.15.4(rollup@4.21.2)(typescript@5.5.4)
+            astro-capo:
+                specifier: ^0.0.1
+                version: 0.0.1(astro@4.15.4(rollup@4.21.2)(typescript@5.5.4))
             typescript:
                 specifier: ^5.5.4
                 version: 5.5.4
@@ -1578,6 +1581,14 @@ packages:
             {
                 integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==,
             }
+
+    astro-capo@0.0.1:
+        resolution:
+            {
+                integrity: sha512-KyQD1mzgEQnbqrKpYdoIZMAYejkOcIJocdGuQBH9Yzr4KqGzIR8P2DDNbV/FQXaSyq900lCZwWJH45tBIQCG8w==,
+            }
+        peerDependencies:
+            astro: ">= 2.8"
 
     astro@4.15.4:
         resolution:
@@ -3540,6 +3551,12 @@ packages:
                 integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==,
             }
 
+    ultrahtml@1.5.3:
+        resolution:
+            {
+                integrity: sha512-GykOvZwgDWZlTQMtp5jrD4BVL+gNn2NVlVafjcFUJ7taY20tqYdwdoWBFy6GBJsNTZe1GkGPkSl5knQAjtgceg==,
+            }
+
     unconfig@0.5.5:
         resolution:
             {
@@ -4964,6 +4981,11 @@ snapshots:
 
     array-iterate@2.0.1: {}
 
+    astro-capo@0.0.1(astro@4.15.4(rollup@4.21.2)(typescript@5.5.4)):
+        dependencies:
+            astro: 4.15.4(rollup@4.21.2)(typescript@5.5.4)
+            ultrahtml: 1.5.3
+
     astro@4.15.4(rollup@4.21.2)(typescript@5.5.4):
         dependencies:
             "@astrojs/compiler": 2.10.3
@@ -6366,6 +6388,8 @@ snapshots:
     typescript@5.5.4: {}
 
     ufo@1.5.4: {}
+
+    ultrahtml@1.5.3: {}
 
     unconfig@0.5.5:
         dependencies:

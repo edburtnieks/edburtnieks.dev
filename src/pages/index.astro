@@ -1,12 +1,13 @@
 ---
 import { getCollection } from "astro:content";
+import { Head } from "astro-capo";
 
 const employments = await getCollection("employments");
 const mentoring = await getCollection("mentoring");
 ---
 
 <html lang="en">
-    <head>
+    <Head>
         <title>Edgars Burtnieks - Front-end Engineer</title>
         <meta
             name="description"
@@ -22,7 +23,7 @@ const mentoring = await getCollection("mentoring");
         <link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
-    </head>
+    </Head>
     <body>
         <div class="two-columns-container px-4">
             <header class="grid gap-4">
