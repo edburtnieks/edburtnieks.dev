@@ -1,0 +1,22 @@
+{
+    "printful": {
+        "company": "Printful",
+        "description": "Design System, Design Maker web app, and CMS component development. Automated tests, code reviews.",
+        "date": "<time datetime=\"2020-09\">Sept 2020</time>–Present"
+    },
+    "scandiweb": {
+        "company": "Scandiweb",
+        "description": "E-commerce store web development",
+        "date": "<time datetime=\"2018-09\">Sept 2018</time>–<time datetime=\"2019-03\">March 2019</time>"
+    },
+    "accenture": {
+        "company": "Accenture",
+        "description": "Mobile development",
+        "date": "<time datetime=\"2017-09\">Sept 2017</time>–<time datetime=\"2018-01\">Jan 2018</time>"
+    },
+    "digital_team": {
+        "company": "Digital Team",
+        "description": "Laravel development",
+        "date": "<time datetime=\"2017-05\">May 2017</time>–<time datetime=\"2017-06\">June 2017</time>"
+    }
+}

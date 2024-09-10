@@ -1,16 +1,235 @@
 ---
+import { getCollection } from "astro:content";
 
+const employments = await getCollection("employments");
+const mentoring = await getCollection("mentoring");
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+    <head>
+        <title>Edgars Burtnieks - Front-end Engineer</title>
+        <meta
+            name="description"
+            content="Front-end Engineer focusing on web accessibility, usability, and performance"
+        />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f6f6f4" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0b09" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+    </head>
+    <body>
+        <div class="two-columns-container px-4">
+            <header class="grid gap-4">
+                <div class="grid gap-1">
+                    <h1>Edgars Burtnieks</h1>
+                    <p>Front-end Engineer</p>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="20px"
+                        viewBox="0 -960 960 960"
+                        width="20px"
+                        fill="currentColor"
+                        role="img"
+                        class="w-5 h-5"
+                    >
+                        <title>Email</title>
+                        <path
+                            d="M144-192v-576l720 288-720 288Zm72-107 454-181-454-181v109l216 72-216 72v109Zm0 0v-362 362Z"
+                        ></path>
+                    </svg>
+                    <a href="mailto:edburtnieks@pm.me" class="px-1">edburtnieks@pm.me</a>
+                </div>
+            </header>
+            <main>
+                <section aria-labelledby="employment-title">
+                    <h2 id="employment-title">Employment</h2>
+                    <ol role="list">
+                        {
+                            employments.map((employment) => (
+                                <li>
+                                    <article class="two-columns">
+                                        <h3 class="min-w-[12rem]">@ {employment.data.company}</h3>
+                                        <div class="grid gap-1">
+                                            <p class="text-pretty">{employment.data.description}</p>
+                                            <div set:html={employment.data.date} />
+                                        </div>
+                                    </article>
+                                </li>
+                            ))
+                        }
+                    </ol>
+                </section>
+                <section aria-labelledby="mentoring-title">
+                    <h2 id="mentoring-title">Mentoring</h2>
+                    <ol role="list">
+                        {
+                            mentoring.map((mentor_item) => (
+                                <li>
+                                    <article class="two-columns">
+                                        <h3 class="min-w-[12rem]">@ {mentor_item.data.company}</h3>
+                                        <div class="grid gap-1">
+                                            <p class="text-pretty">
+                                                <span class="font-bold">
+                                                    {mentor_item.data.position_title}:
+                                                </span>
+                                                {mentor_item.data.description}
+                                            </p>
+                                            <div set:html={mentor_item.data.date} />
+                                        </div>
+                                    </article>
+                                </li>
+                            ))
+                        }
+                    </ol>
+                </section>
+            </main>
+            <footer class="mb-4">&copy; <time datetime="2024">2024</time> Edgars Burtnieks</footer>
+        </div>
+    </body>
 </html>
+
+<style is:global>
+    @font-face {
+        font-family: "Atkinson-Hyperlegible";
+        font-style: normal;
+        font-weight: 400;
+        src: url(/src/assets/fonts/Atkinson-Hyperlegible-Regular-102a.woff2) format("woff2");
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: "Atkinson-Hyperlegible";
+        font-style: normal;
+        font-weight: 700;
+        src: url(/src/assets/fonts/Atkinson-Hyperlegible-Bold-102a.woff2) format("woff2");
+        font-display: swap;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        color-scheme: light dark;
+        font-family: "Atkinson-Hyperlegible", system-ui, sans-serif;
+        font-size: 1.25rem;
+        line-height: 1.5;
+        background-color: light-dark(hsl(60deg 10% 96%), hsl(60deg 10% 4%));
+        color: light-dark(hsl(60deg 10% 37%), hsl(60deg 10% 71%));
+    }
+
+    body,
+    h1,
+    h2,
+    h3,
+    p,
+    ol {
+        margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 1rem;
+        color: light-dark(hsl(60deg 10% 22%), hsl(60deg 10% 88%));
+    }
+
+    a {
+        color: currentColor;
+        text-underline-offset: 0.5em;
+        text-decoration-thickness: 2px;
+
+        &:hover,
+        &:focus-visible {
+            outline: 2px solid;
+            outline-offset: 0.025em;
+            text-decoration: none;
+        }
+    }
+
+    ol[role="list"] {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    ::selection {
+        background-color: light-dark(hsl(60deg 5% 27%), hsl(60deg 5% 81%));
+        color: light-dark(hsl(60deg 5% 96%), hsl(60deg 5% 4%));
+    }
+
+    .two-columns-container {
+        container: two-columns / inline-size;
+
+        header {
+            margin-block-start: 2rem;
+        }
+
+        main,
+        footer {
+            margin-block-start: 4rem;
+        }
+
+        main {
+            > :not([hidden]) ~ :not([hidden]) {
+                margin-block-start: 4rem;
+            }
+        }
+
+        ol {
+            margin-block-start: 1rem;
+
+            > :not([hidden]) ~ :not([hidden]) {
+                margin-block-start: 2rem;
+            }
+        }
+    }
+
+    .two-columns {
+        display: grid;
+        gap: 0.25rem;
+        max-inline-size: 30rem;
+    }
+
+    @container two-columns (inline-size > 40rem) {
+        .two-columns-container {
+            header,
+            main,
+            footer {
+                margin-inline: clamp(0rem, 20cqw - 8rem, 4rem);
+            }
+
+            header {
+                margin-block-start: clamp(2rem, 40cqw - 16rem, 8rem);
+            }
+
+            main,
+            footer {
+                margin-block-start: 8rem;
+            }
+
+            main {
+                > :not([hidden]) ~ :not([hidden]) {
+                    margin-block-start: 8rem;
+                }
+            }
+
+            ol {
+                margin-block-start: 2rem;
+            }
+        }
+
+        .two-columns {
+            gap: 1rem;
+            grid-template-columns: auto 1fr;
+            align-items: baseline;
+            max-inline-size: 40rem;
+        }
+    }
+</style>

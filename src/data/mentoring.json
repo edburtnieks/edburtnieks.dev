@@ -1,0 +1,14 @@
+{
+    "riga_tech_girls": {
+        "company": "Riga TechGirls",
+        "position_title": "Front-end Buddy",
+        "description": "Supported multiple mentees with front-end and software engineer career related questions and topics",
+        "date": "<time datetime=\"2023-02\">Feb 2023</time>–<time datetime=\"2023-03\">March 2023</time>"
+    },
+    "women_go_tech": {
+        "company": "Women Go Tech",
+        "position_title": "UX Design Mentor",
+        "description": "Empowered and assisted a mentee with the switch to a new career in UX design field with regular one-on-one meetings and interactive practice workshops",
+        "date": "<time datetime=\"2022-01\">Jan 2022</time>–<time datetime=\"2022-06\">June 2022</time>"
+    }
+}
