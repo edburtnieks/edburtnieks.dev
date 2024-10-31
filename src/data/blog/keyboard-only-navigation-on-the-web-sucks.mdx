@@ -1,0 +1,90 @@
+---
+title: Keyboard Only Navigation On The Web Sucks
+---
+
+import KeyboardVSMouseScrollSrcWebm from "./assets/keyboard-vs-mouse-scroll.webm";
+import KeyboardVSMouseScrollSrcMp4 from "./assets/keyboard-vs-mouse-scroll.mp4";
+import EnableKeyboardFocusableScrollersToStableLight from "./assets/enable-keyboard-focusable-scrollers-to-stable-light.png";
+import EnableKeyboardFocusableScrollersToStableDark from "./assets/enable-keyboard-focusable-scrollers-to-stable-dark.png";
+import DisableKeyboardFocusableScrollersToStableLight from "./assets/disable-keyboard-focusable-scrollers-to-stable-light.png";
+import DisableKeyboardFocusableScrollersToStableDark from "./assets/disable-keyboard-focusable-scrollers-to-stable-dark.png";
+
+<div class="readable-inline-size">
+
+# Keyboard Only Navigation On The Web Sucks
+
+</div>
+
+<div class="readable-inline-size">
+
+What I’m **NOT** talking about here are screen readers. I’m talking about speficially using a keyboard while looking at the screen.
+
+In best case scenario a team has spent time and effort to make using their product with keyboard suck less. Having user interface easy to parse and navigate, using proper HTML, following WCAG success criteria and techniques, introducing easy to learn shortcuts, global command pallete.
+
+In worst case scenario, which is more often the case, the website or web app is completely unusable and potentionally dangerous to use with keyboard.
+
+</div>
+
+<div class="readable-inline-size">
+
+## Tabbing after scrolling
+
+One of the more annoying inconveniences when using only keyboard to navigate, is when you are scrolling a lengthy blog post with arrow keys and you come across a link that you want to focus on, whether you want the browser to tell you where does the link go to or open it in new tab, when you press tab key to try to focus on the said link, all of the sudden you are brought back to completely different part of the page, most likely at the very top of the page if that was your first tab interaction. Whilst using a mouse it’s not an issue, because your “interaction maker”? is already in your viewport, you just need to position it in the right place. Currently active element does not follow the visible viewport as it changes on scroll.
+
+    <figure>
+        <video autoplay loop muted playsinline controls width="1920" height="1080">
+            <source src={KeyboardVSMouseScrollSrcWebm} type="video/webm" />
+            <source src={KeyboardVSMouseScrollSrcMp4} type="video/mp4" />
+        </video>
+        <figcaption>
+
+Comparison between keyboard and mouse for focusing on interactive element outside the viewport when scrolling is necessary
+
+        </figcaption>
+    </figure>
+
+</div>
+
+<div class="readable-inline-size">
+
+## Jumping between scroll containers
+
+Sometimes I just want to scroll another section on a page with arrow keys or Page up/Page down keys to quickly get some context and continue with whatever I was doing
+
+It is impossible to move focus between scroll containers. It becomes painful when you want to keep the scroll position with focused element intact
+
+Now, to be fair, as of Chrome 127 stable, they are slowly rolling out [Keyboard focusable scroll containers by default](https://developer.chrome.com/blog/keyboard-focusable-scrollers) **if the scroller has no focusable children**. They actually already rolled out this feature in Chrome 124, broke existing expectations, some elements got incorrectly recognized as focusable, and had to rollback. But that's a whole separate can of worms.
+
+https://issues.chromium.org/issues/40113891#comment61
+
+<picture>
+  <source
+    srcset={EnableKeyboardFocusableScrollersToStableLight.src}
+    media="(prefers-color-scheme: light)"
+  />
+  <source
+    srcset={EnableKeyboardFocusableScrollersToStableDark.src}
+    media="(prefers-color-scheme: dark)"
+  />
+  <img src={EnableKeyboardFocusableScrollersToStableLight.src} alt="" />
+</picture>
+
+<picture>
+  <source
+    srcset={DisableKeyboardFocusableScrollersToStableLight.src}
+    media="(prefers-color-scheme: light)"
+  />
+  <source
+    srcset={DisableKeyboardFocusableScrollersToStableDark.src}
+    media="(prefers-color-scheme: dark)"
+  />
+  <img src={DisableKeyboardFocusableScrollersToStableLight.src} alt="" />
+</picture>
+
+This behaviour has been in Firefox for a long time, but it's nice that Chrome has added it too.
+
+However that in no way provides a viable alternative to mouse.
+
+I use Jira at my work. I know, _F_.<br/>On a Wednesday, I got frustrated, started smashing random keys, and accidentaly found that on a single Jira ticket page you can switch between main area (description + comments) and the sidebar (fields) with arrow keys. When switching it also moves the focus, so when you start tabbing, you are already in the rightish area kind of. It puts you at the very top of that area. Not great, but it's something, and sometimes I find it useful, when I just need to scroll, find something, and not necessarily interact with elements inside.
+
+</div>
